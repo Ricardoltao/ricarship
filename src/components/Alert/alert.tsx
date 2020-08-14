@@ -3,12 +3,12 @@ import classNames from 'classnames'
 
 export type AlertType = 'success' | 'default' | 'danger' | 'warning'
 
-interface AlertProps {
+export interface AlertProps {
   title: string;
   description?: string;
   type?: AlertType;
   onClose?: () => void;
-  closable: boolean;
+  closable?: boolean;
 }
 
 const Alert: React.FC<AlertProps> = (props) => {

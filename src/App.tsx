@@ -1,43 +1,24 @@
 import React from 'react';
 // import Button, {ButtonType,ButtonSize} from './components/Button/button'
-import Alert from './components/Alert/alert'
+// import Alert from './components/Alert/alert'
+import Menu from './components/Menu/menu'
+import MenuItem from './components/Menu/menuItem' 
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-      <div
-        style={{
-          padding: '20px 40px',
-          width: '500px'
-        }}
-      >
-        <h3>
-          组件演示
-        </h3>
-        <Alert
-          closable
-          title="this is Success"
-          type="success"
-        />
-        <Alert
-          closable
-          title="this is Danger!"
-          type="danger"
-        />
-        <Alert
-          closable={false}
-          title="this is Warning!"
-          type="warning"
-        />
-        <Alert
-          closable
-          description="this is a long description"
-          onClose={function noRefCheck(){alert('关闭')}}
-          title="提示标题欧亲"
-          type="default"
-        />        
-      </div>
+        <Menu defaultIndex={0} onSelect={(index) => {alert(index)}}>
+          <MenuItem index={0}>
+            cool link
+          </MenuItem>
+          <MenuItem index={1} disabled>
+            cool link 2
+          </MenuItem>        
+          <MenuItem index={2}>
+            cool link 3
+          </MenuItem>
+        </Menu>      
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
