@@ -2,23 +2,32 @@ import React from 'react';
 // import Button, {ButtonType,ButtonSize} from './components/Button/button'
 // import Alert from './components/Alert/alert'
 import Menu from './components/Menu/menu'
-import MenuItem from './components/Menu/menuItem' 
+import MenuItem from './components/Menu/menuItem'
+import SubMenu from './components/Menu/subMenu'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Menu defaultIndex={0} onSelect={(index) => {alert(index)}} mode="vertical">
-          <MenuItem index={0}>
+        <Menu defaultIndex={'0'} onSelect={(index) => {alert(index)}} mode="vertical" defaultOpenSubMenus={['2']}>
+          <MenuItem>
             cool link
           </MenuItem>
-          <MenuItem index={1} disabled>
+          <MenuItem disabled>
             cool link 2
-          </MenuItem>        
-          <MenuItem index={2}>
+          </MenuItem> 
+          <SubMenu title="dropdown">
+            <MenuItem>
+              dropdown 1
+            </MenuItem>
+            <MenuItem>
+              dropdown 2
+            </MenuItem>
+          </SubMenu>        
+          <MenuItem>
             cool link 3
           </MenuItem>
-        </Menu>      
+        </Menu>    
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
