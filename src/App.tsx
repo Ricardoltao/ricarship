@@ -1,33 +1,31 @@
 import React from 'react';
 // import Button, {ButtonType,ButtonSize} from './components/Button/button'
 // import Alert from './components/Alert/alert'
-import Menu from './components/Menu/menu'
-import MenuItem from './components/Menu/menuItem'
-import SubMenu from './components/Menu/subMenu'
+// import Menu from './components/Menu/menu'
+// import MenuItem from './components/Menu/menuItem'
+// import SubMenu from './components/Menu/subMenu'
+import Tabs from './components/Tabs/tabs'
+import TabItem from './components/Tabs/tabItem'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Menu defaultIndex={'0'} onSelect={(index) => {alert(index)}} mode="vertical" defaultOpenSubMenus={['2']}>
-          <MenuItem>
-            cool link
-          </MenuItem>
-          <MenuItem disabled>
-            cool link 2
-          </MenuItem> 
-          <SubMenu title="dropdown">
-            <MenuItem>
-              dropdown 1
-            </MenuItem>
-            <MenuItem>
-              dropdown 2
-            </MenuItem>
-          </SubMenu>        
-          <MenuItem>
-            cool link 3
-          </MenuItem>
-        </Menu>    
+        <Tabs
+          defaultIndex={0}
+          onSelect={function noRefCheck(){}}
+          type="card"
+        >
+          <TabItem label="选项卡一">
+            this is content one
+          </TabItem>
+          <TabItem label="选项卡二">
+            this is content two
+          </TabItem>
+          <TabItem label="用户管理">
+            this is content three
+          </TabItem>
+        </Tabs> 
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
