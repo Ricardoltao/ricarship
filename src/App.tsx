@@ -1,42 +1,70 @@
-import React from 'react';
-// import Button, {ButtonType,ButtonSize} from './components/Button/button'
-// import Alert from './components/Alert/alert'
-// import Menu from './components/Menu/menu'
-// import MenuItem from './components/Menu/menuItem'
-// import SubMenu from './components/Menu/subMenu'
-import Tabs from './components/Tabs/tabs'
-import TabItem from './components/Tabs/tabItem'
+import React, { useState } from 'react';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import Menu from './components/Menu/menu'
+import MenuItem from './components/Menu/menuItem'  
+import SubMenu from './components/Menu/subMenu'
+import Transition from './components/Transition/transition'
+import Button from './components/Button/button'
+library.add(fas)
 
-function App() {
+
+const App: React.FC = () => {
+  const [ show, setShow ] = useState(false)
   return (
     <div className="App">
       <header className="App-header">
-        <Tabs
-          defaultIndex={0}
-          onSelect={function noRefCheck(){}}
-          type="card"
+        <Menu defaultIndex='0' onSelect={(index) => {alert(index)}}>
+          <MenuItem>
+            cool link
+          </MenuItem>
+          <MenuItem disabled>
+            cool link 2
+          </MenuItem> 
+          <SubMenu title="dropdown">
+            <MenuItem>
+              dropdown 1
+            </MenuItem>
+            <MenuItem>
+              dropdown 2
+            </MenuItem>
+          </SubMenu>        
+          <MenuItem>
+            cool link 3
+          </MenuItem>
+        </Menu>
+        <Button size="lg" btnType="primary" onClick={() => { setShow(!show)}} > Toggle </Button>
+        <Transition
+          in={show}
+          timeout={300}
+          animation="zoom-in-left"
         >
-          <TabItem label="选项卡一">
-            this is content one
-          </TabItem>
-          <TabItem label="选项卡二">
-            this is content two
-          </TabItem>
-          <TabItem label="用户管理">
-            this is content three
-          </TabItem>
-        </Tabs> 
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+          <div>
+          <p>
+            Edit <code>src/App.tsx</code> and save to reload.
+          </p>
+          <p>
+            Edit <code>src/App.tsx</code> and save to reload.
+          </p>
+          <p>
+            Edit <code>src/App.tsx</code> and save to reload.
+          </p>
+          <p>
+            Edit <code>src/App.tsx</code> and save to reload.
+          </p>
+          <p>
+            Edit <code>src/App.tsx</code> and save to reload.
+          </p>
+          </div>
+        </Transition>
+        <Transition
+          in={show}
+          timeout={300}
+          animation="zoom-in-top"
+          wrapper
         >
-          Learn React
-        </a>
+          <Button btnType="primary" size="lg">A Large Button </Button>
+        </Transition>
       </header>
     </div>
   );
