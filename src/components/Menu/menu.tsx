@@ -40,7 +40,7 @@ const Menu: React.FC<MenuProps> = (props) => {
   const passedContext: IMenuContext = {
     index: currentActive ? currentActive : '0',
     onSelect: handleClick,
-    mode,
+    mode, // 传给子组件判断是横向菜单还是纵向菜单
     defaultOpenSubMenus
   }
 
